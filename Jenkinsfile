@@ -24,20 +24,6 @@ pipeline {
                 }
             }
         }
-        
-        // Opcional: descomentar si tienes tests de integración configurados
-        /*
-        stage('Pruebas de Integración') {
-            steps {
-                sh 'mvn verify -Dskip.unit.tests=true'
-            }
-            post {
-                always {
-                    junit allowEmptyResults: true, testResults: '**/target/failsafe-reports/*.xml'
-                }
-            }
-        }
-        */
     }
     
     post {
