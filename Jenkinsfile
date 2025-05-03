@@ -10,13 +10,13 @@ pipeline {
         
         stage('Compilar y Empaquetar') {
             steps {
-                sh 'mvn clean package -DskipTests'
+                bat 'mvn clean package -DskipTests'
             }
         }
         
         stage('Ejecutar Tests') {
             steps {
-                sh 'mvn test'
+                bat 'mvn test'
             }
             post {
                 always {
