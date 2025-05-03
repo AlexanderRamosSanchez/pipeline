@@ -1,8 +1,6 @@
 pipeline {
     agent any
     
-    // Eliminamos la sección tools ya que causa el error
-    
     stages {
         stage('Checkout') {
             steps {
@@ -12,7 +10,6 @@ pipeline {
         
         stage('Compilar y Empaquetar') {
             steps {
-                // Usamos mvn o mvn.cmd según el sistema operativo
                 sh 'mvn clean package -DskipTests'
             }
         }
@@ -28,8 +25,8 @@ pipeline {
             }
         }
         
-        // Opcional: añadir si tienes tests de integración configurados
-        /* 
+        // Opcional: descomentar si tienes tests de integración configurados
+        /*
         stage('Pruebas de Integración') {
             steps {
                 sh 'mvn verify -Dskip.unit.tests=true'
